@@ -1,0 +1,48 @@
+function getMovieInfosOMDB(title){
+    const url = `http://www.omdbapi.com/?t=${title}&apikey=790af7bc`  
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        // Resposta do JS para um filme que não é encontrado.
+        if(data.Response == 'False'){
+            descriptionBodyNotFound.textContent = "Filme não encontrado! Tente novamente.";
+            descriptionBodyNotFound.style.marginBottom = '30px'
+            movieTitle.textContent = ""
+            movieYear.textContent = ""
+            movieGenre.textContent = ""
+            movieRuntime.textContent = ""
+            imdbRating.textContent = ""
+            movieInfo.textContent = ""
+            movieWriter.textContent = ""
+            movieDirector.textContent = ""
+            escritoPor.textContent = ""
+            dirigidoPor.textContent = ""
+            moviePoster.style.backgroundImage = `url(filmeNaoEncontrado.png)`
+        }
+        // Resposta do JS para o filme encontrado. 
+        else {
+            descriptionBodyNotFound.textContent = "";
+            movieTitle.textContent = data.Title
+            movieYear.textContent = data.Year
+            movieGenre.textContent = data.Genre
+            movieRuntime.textContent = data.Runtime
+            imdbRating.textContent = data.imdbRating
+            movieInfo.textContent = data.Plot
+            movieWriter.textContent = data.Writer
+            movieDirector.textContent = data.Director
+            moviePoster.style.backgroundImage = `url(${data.Poster})`
+        }
+     })  
+}
+
+
+var form = document.getElementById('formSearch');
+var title = document.getElementById('title');
+
+form.addEventListener('submit', function(e) {
+    
+    getMovieInfosOMDB(title.value)
+    // impede o envio do form
+    e.preventDefault();
+});
+
