@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação</title>
+    <link rel="stylesheet" href="avaliaçao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+
+    <main>
+        <div id="moviePoster">
+            <div class="omdbrating">
+                <span id="icone"><i class="fa-solid fa-star"></i></span>
+
+                <span id="imdbRating">Score</span>
+            </div>
+        </div>
+
+        <div class="description">
+            <!-- Criação do formulário de pesquisa. -->
+            <form id="formSearch" action="">
+                <!-- Caixa de texto. -->
+                <input id="title" type="text" placeholder="Informe o título do filme">
+                <!-- Botão de pesquisa. -->
+                <input type="submit" value="Pesquisar">
+            </form>
+            <!-- Div do filme não encontrado. -->
+            <div id="descriptionBodyNotFound">
+            </div>
+            <!-- Div com as informações do filme pesquisado. -->
+            <div id="descriptionBody">
+                <h1 id="movieTitle">Titulo do filme</h1>
+                <p><span class="infoBlue" id="movieYear">ANO</span> <span id="movieGenre">GENERO DO FILME</span> <span
+                        class="infoBlue" id="movieRuntime">DURAÇÃO</span></p>
+                <p id="movieInfo">Descrição do filme.</p>
+                <p id="escritoPor"><strong> Escrito por:</strong> <span id="movieWriter">Nome do escritor</span> </p>
+                <p id="dirigidoPor"><strong>Dirigido por:</strong> <span id="movieDirector">Nome do ditetor</span></p>
+            </div>
+
+            
+        </div>
+    </main>
+
+    <script src="avaliaçao.js"></script>
+</body>
+
+</html>
